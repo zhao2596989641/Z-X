@@ -26,9 +26,10 @@ function removeArticleHTML(section, filename) {
   const filePath = path.join(__dirname, 'pages', section, 'index.html');
   if (!fs.existsSync(filePath)) return;
   let html = fs.readFileSync(filePath, 'utf-8');
-  // 移除包含该文件名的 <article> 整块（含前后换行）
+  // 移除包含该文件名的 <article> 整块（不跨越 article 边界）
   const escaped = filename.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
-  const re = new RegExp('\\s*<article[^>]*>[\\s\\S]*?' + escaped + '[\\s\\S]*?<\\/article>', 'g');
+  // 用非贪婪 + 否定前瞻：匹配一个 article，内容不包含另一个 <article 开头
+  const re = new RegExp('<article[^>]*>(?:(?!<article[^>]*>)[\\s\\S])*?' + escaped + '(?:(?!<article[^>]*>)[\\s\\S])*?<\\/article>', 'g');
   if (re.test(html)) {
     html = html.replace(re, '');
     fs.writeFileSync(filePath, html, 'utf-8');

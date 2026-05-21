@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <title>Letter</title>
+        <link rel="stylesheet" href="styles.css">
+        <link rel="stylesheet" href="../../assets/css/editor.css">
+    </head>
+    <body>
+        <!-- 编辑按钮 -->
+        <button class="letter-edit-btn" id="letterEditBtn" title="编辑信件">
+            &#9998; 编辑
+        </button>
+        <!-- 保存/取消按钮组 -->
+        <div class="letter-actions" id="letterActions">
+            <button class="letter-btn-save" id="letterSaveBtn">&#128190; 保存</button>
+            <button class="letter-btn-cancel" id="letterCancelBtn">&#10005; 取消</button>
+        </div>
+
+        <div class="container">
+            <header>
+                <h1 id="title">
+                    致我最爱的宝宝
+                </h1>
+            </header>
+           
+            <form id="basic-Information">
+                <div id="letter">
+                    
+                    <p id="txthead">最爱的宝宝：</p>
+                    <p>没想到时间过得这么快，咱们在一起已经两周年了。这个网站里都是我们过往的回忆，还有漂亮的宝宝。
+                        我希望通过这个方式来让我们的回忆永远留存下去。直到未来我们也能找到当时一起经历过的种种。
+                        虽然我们也曾有过不愉快，也有过吵吵闹闹，但是跟你在一起的时间真的非常开心。
+                        从高三接你回家，到现在到对方的城市，我们经历了很多，也去过很多有趣的地方。
+                        经历了这么多我已经把你当做家人一样看待了，我可以全身心依赖在你身上，没有任何拘束，也没有任何的架子，这种感觉真的很棒。
+                        异地恋确实令人感到难受，也会导致我们之间产生一些矛盾，但是我相信我们会克服这一切，走到最后。
+                        以后的家里，我们可以一起做饭，一起玩游戏，一起看电影，一起睡觉，在自己的小家互相依偎着。
+                        我相信我们一定可以突破重重难关，最后幸福地生活在一起。
+                        有你，真好。
+                        <br>我爱你，宝宝。 
+                    </p><p>test</p>
+                    <p id="txtfoot">最爱你的<br>臭子</p>
+                
+                </div>
+
+
+
+
+
+
+
+                <!-- <fieldset>
+                    <legend>Basic Information</legend>
+                    <div class="Basic-information">
+                        <label for="name" id="name-label">Your Name</label>
+                        <input id="name" type="text"  name="name" placeholder="Enter your name">
+                    </div>
+                    <div class="Basic-information">
+                        <label for="email" id="email-label">Your Email</label>
+                        <input id="email" type="email" name="email" placeholder="Enter your email">
+                    </div>
+                    <div class="Basic-information">
+                        <label for="age" id="age-label">Your age</label>
+                        <input id="age" type="number" min="0" max="130" name="age" placeholder="Enter your age">
+                    </div>
+                </fieldset>
+
+                <fieldset>
+                    <legend>Phone Info</legend>
+                    <div class="Phone Info">
+                        <label for="brand" id="brand-label">What is your mobile phone brand?</label>
+                        <select id="brand" name="brand">
+                            <option value="select">(select one)</option>
+                            <option value="Huawei">Huawei</option>
+                            <option value="Apple">Apple</option>
+                            <option value="Samsung">Samsung</option>
+                            <option value="Google">Google</option>
+                            <option value="Xiaomi">Xiaomi</option>
+                            <option value="OPPO">OPPO</option>
+                            <option value="vivo">vivo</option>
+                            <option value="Honor">Honor</option>
+                        </select>
+                    </div>
+                    <div class="Phone Info">
+                        <label for="model" id="model-label">What is your mobile phone model?</label>
+                        <input id="model" type="text" name="model" placeholder="Enter your phone model" required>
+                    </div>
+                    <div class="Phone Info">
+                        <label for="memory-size" id="memory-size-label">How much memory does your phone have?</label>
+                        <select id="memory-size" name="memory-size">
+                            <option value="select">(select one)</option>
+                            <option value="4-">4-</option>
+                            <option value="6">6</option>
+                            <option value="8">8</option>
+                            <option value="12">12</option>
+                            <option value="16+">16+</option>
+                        </select>
+                    </div>
+                    <div class="Phone Info">
+                        <label for="storage-space" id="storage-space-label">How much storage space does your phone have?</label>
+                        <select id="storage-space" name="storage-space">
+                            <option value="select">(select one)</option>
+                            <option value="64-">64-GB</option>
+                            <option value="128">128GB</option>
+                            <option value="256">256GB</option>
+                            <option value="512">512GB</option>
+                            <option value="1T+">1TB+</option>
+                        </select>
+                    </div>
+                    <div class="Phone Info">
+                        Are you satisfied with your phone?
+                        <label for="satisfy">
+                            <input id="satisfy" value="satisfy" name="Satisfaction" type="radio" required>
+                            Satisfy
+                        </label>
+                        <label for="so so">
+                            <input id="so so" value="so so" name="Satisfaction" type="radio">
+                            so so
+                        </label>
+                        <label for="not satisfied">
+                            <input id="not satisfied" value="not satisfied" name="Satisfaction" type="radio">
+                            Not satisfied
+                        </label>
+                    </div>
+                    <div class="Phone Info">
+                        What parts of your phone are you satisfied with?
+                        <label for="signal">
+                            <input id="signal" value="signal" type="checkbox" name="Satisfactory aspects">
+                            Signal
+                        </label>
+                        <label for="camera">
+                            <input id="camera" value="camera" type="checkbox" name="Satisfactory aspects">
+                            Camera
+                        </label>
+                        <label for="fluency">
+                            <input id="fluency" value="fluency" type="checkbox" name="Satisfactory aspects">
+                            Fluency
+                        </label>
+                        <label for="screen">
+                            <input id="screen" value="screen" type="checkbox" name="Satisfactory aspects">
+                            Screen quality
+                        </label>
+                        <label for="other">
+                            <input id="other" value="other" type="checkbox" name="Satisfactory aspects" required>
+                            Other functions
+                        </label>
+                    </div>
+                    <div>
+                        <label for="comments">Do you have any comments or suggestions for your mobile phone?</label>
+                        <textarea id='comments' name='comments' placeholder="Enter your comments here..."></textarea>
+                    </div>
+                </fieldset>
+                <button type="submit">Submit</button> -->
+            </form>
+        </div>
+
+        <script>
+        (function() {
+            // 仅本地服务器环境激活编辑器
+            if (window.location.hostname !== 'localhost' && window.location.hostname !== '127.0.0.1') {
+                document.getElementById('letterEditBtn').style.display = 'none';
+                return;
+            }
+
+            var letterEl = document.getElementById('letter');
+            var editBtn = document.getElementById('letterEditBtn');
+            var actionsEl = document.getElementById('letterActions');
+            var saveBtn = document.getElementById('letterSaveBtn');
+            var cancelBtn = document.getElementById('letterCancelBtn');
+
+            var originalHTML = letterEl.innerHTML;
+            var editing = false;
+
+            editBtn.addEventListener('click', function() {
+                if (!editing) {
+                    // 进入编辑模式
+                    originalHTML = letterEl.innerHTML;
+                    letterEl.contentEditable = 'true';
+                    letterEl.focus();
+                    document.body.classList.add('letter-editing');
+                    editBtn.style.display = 'none';
+                    editing = true;
+                }
+            });
+
+            saveBtn.addEventListener('click', function() {
+                var newHTML = letterEl.innerHTML;
+                fetch('/api/letter', {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({ letterHTML: newHTML })
+                })
+                .then(function(r) { return r.json(); })
+                .then(function(data) {
+                    if (data.success) {
+                        exitEdit();
+                    } else {
+                        alert('保存失败：' + (data.error || '未知错误'));
+                    }
+                })
+                .catch(function(err) {
+                    alert('保存失败：' + err.message);
+                });
+            });
+
+            cancelBtn.addEventListener('click', function() {
+                letterEl.innerHTML = originalHTML;
+                exitEdit();
+            });
+
+            function exitEdit() {
+                letterEl.contentEditable = 'false';
+                document.body.classList.remove('letter-editing');
+                editBtn.style.display = '';
+                editing = false;
+            }
+        })();
+        </script>
+
+    </body>
+
+</html>

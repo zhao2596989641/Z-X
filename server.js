@@ -38,7 +38,7 @@ function removeArticleHTML(section, filename) {
 
 function buildArticleForTemplate(section, filename) {
   const full = 'images/fulls/' + filename;
-  const thumb = 'images/thumbs/' + filename;
+  const thumb = full;  // 缩略图=原图
   // Detect template type
   const filePath = path.join(__dirname, 'pages', section, 'index.html');
   const raw = fs.readFileSync(filePath, 'utf-8');
@@ -145,9 +145,7 @@ app.post('/api/upload/:section', upload.single('image'), async (req, res) => {
     }
 
     const fullsDir = path.join(__dirname, 'pages', section, 'images', 'fulls');
-    const thumbsDir = path.join(__dirname, 'pages', section, 'images', 'thumbs');
     fs.mkdirSync(fullsDir, { recursive: true });
-    fs.mkdirSync(thumbsDir, { recursive: true });
 
     // Safe filename
     const ext = path.extname(req.file.originalname) || '.jpg';
@@ -155,11 +153,9 @@ app.post('/api/upload/:section', upload.single('image'), async (req, res) => {
       .replace(/[^a-zA-Z0-9\u4e00-\u9fff_-]/g, '_');
     const filename = `${base}_${Date.now()}${ext}`;
 
-    // Save to both directories (原图，不压缩)
+    // Save image
     const fullPath = path.join(fullsDir, filename);
-    const thumbPath = path.join(thumbsDir, filename);
     fs.writeFileSync(fullPath, req.file.buffer);
-    fs.writeFileSync(thumbPath, req.file.buffer);  // 缩略图也用原图
 
     // Return thumbnail as base64 for immediate preview
     const thumbBase64 = req.file.buffer.toString('base64');
@@ -211,11 +207,9 @@ app.delete('/api/image/:section/:filename', (req, res) => {
     }
 
     const fullPath = path.join(__dirname, 'pages', section, 'images', 'fulls', filename);
-    const thumbPath = path.join(__dirname, 'pages', section, 'images', 'thumbs', filename);
 
     let deleted = false;
     if (fs.existsSync(fullPath)) { fs.unlinkSync(fullPath); deleted = true; }
-    if (fs.existsSync(thumbPath)) { fs.unlinkSync(thumbPath); deleted = true; }
 
     if (deleted) {
       // Sync removal from static HTML

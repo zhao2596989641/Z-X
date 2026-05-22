@@ -99,7 +99,7 @@
   /* ========== 构建 article HTML ========== */
   function buildArticleHTML(filename, title, caption) {
     var full = 'images/fulls/' + filename;
-    var thumb = 'images/thumbs/' + filename;
+    var thumb = full;  // 缩略图=原图
     title = title || '';
     caption = caption || '';
 

@@ -1,5 +1,6 @@
 @echo off
-echo 正在启动服务器...
+chcp 65001 >nul
+echo Starting server...
 start "" http://localhost:3000
 node server.js
 pause
